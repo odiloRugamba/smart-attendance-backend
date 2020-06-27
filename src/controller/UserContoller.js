@@ -168,52 +168,6 @@ class UserController {
   }
 
   /**
- * @description This is a function for sending email to a user with an account
- * @param  {object} req - The request object
- * @param  {object} res - The response object
- * @returns  {object} The response object
- */
-  static async ResendLink(req, res) {
-    try {
-      const { email } = req.body;
-      const exist = await UserService.findByEmail(email);
-      if (!exist) {
-        return res.status(404).json({
-          status: 404,
-          error: 'Looks like there is no account associated with your Email',
-        });
-      }
-      const payload = {
-        id: exist.id,
-        userName: exist.userName,
-        email: exist.email,
-      };
-      const token = jwt.sign(payload, exist.password);
-
-      const mail = new Mail({
-        to: exist.email,
-        header: 'Reset your password',
-        messageHeader: `Hello, <strong>${exist.userName}!</strong>`,
-        messageBody: 'You are requesting a password reset, Click the following link to reset your passaword.',
-        optionLink: `${process.env.APP_URL}/api/auth/reset`,
-        Button: true
-      });
-      mail.InitButton({
-        text: 'Reset Password',
-        link: `${process.env.APP_URL}/ResetPassword?email=${exist.email}&token=${token}`
-      });
-      await mail.sendMail();
-
-      return res.status(200).json({
-        status: 200,
-        message: 'Another Link to reset password is sent to your email',
-      });
-    } catch (err) {
-      return Responses.Error(res, 500, 'Internal Server Error');
-    }
-  }
-
-  /**
    * @description This is a function for sending email to a user with an account
    * @param  {object} req - The request object
    * @param  {object} res - The response object

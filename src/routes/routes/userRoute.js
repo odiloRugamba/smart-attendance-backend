@@ -28,7 +28,6 @@ const {
 router.post('/signup', userValidate, signUp);
 router.post('/login', loginValidate, login);
 router.post('/forget', sendResetLink);
-router.post('/resend', ResendLink);
 router.patch('/reset', verifyToken, resetPassword);
 router.post('/logout', verifyToken, logout);
 router.patch('/reset/:email/:token', resetPassword);

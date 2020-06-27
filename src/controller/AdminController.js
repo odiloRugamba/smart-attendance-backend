@@ -19,10 +19,7 @@ class AdminController {
       if (!existingUser) {
         return res.json({ status: 409, message: 'User does not exists' });
       }
-      if (role === 'super-admin ') {
-        return Responses.Error(res, 401, { error: 'Super admin you are not allowed to change your role' });
-      }
-      if (roleName === 'super-admin') {
+      if (roleName === 'super-administrator') {
         return Responses.Error(res, 401, { error: 'Role unsupported, contact administrator' });
       }
       const user = await UserService.update({ email }, { role: roleName });

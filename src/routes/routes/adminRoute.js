@@ -10,6 +10,6 @@ const {
 const { assignRole } = Validator;
 const router = express.Router();
 
-router.patch('/assignRole', verifyToken, assignRole, authorizeUser(['super-adminstator', 'admin']), Controller.updateUserRole);
+router.patch('/assignRole', verifyToken, assignRole, authorizeUser(['super-administrator']), Controller.updateUserRole);
 
 export default router;

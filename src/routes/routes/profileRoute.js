@@ -12,8 +12,8 @@ const {
   fetchAllUsers, getUserProfile, updateProfile, updateProfileImage
 } = ProfileController;
 
-router.get('/Users', verifyToken, authorize(['super-administator', 'head-master']), fetchAllUsers);
+router.get('/Users', verifyToken, fetchAllUsers);
 router.get('/:id', verifyToken, getUserProfile);
-router.patch('/:id', verifyToken, updateProfile);
+router.patch('/', verifyToken, updateProfile);
 
 export default router;

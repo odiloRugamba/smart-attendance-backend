@@ -42,7 +42,10 @@ class ProfileController {
     try {
       const { id } = req.userData;
       // await UserService.updateUser({ id: userId }, req.body);
-
+        console.log(id);
+        console.log(req.body);
+        
+        
       await UserService.updateOrCreate(id, req.body);
 
       const profile = await UserService.getProfile(id);

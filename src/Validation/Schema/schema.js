@@ -136,11 +136,11 @@ class Schema {
         .string()
         .trim()
         .valid(
-          'super-admin',
-          'admin',
-          'vendor',
-          'user',
-          'guest',
+          'super-administrator',
+          'head-master',
+          'teacher',
+          'dos',
+          'parent',
           'other'
         )
         .required()
