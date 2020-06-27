@@ -56,7 +56,7 @@ class UserController {
       });
       mail.InitButton({
         text: 'Verify Email',
-        link: `${process.env.APP_URL}/api/auth/confirmEmail?token=${token}`,
+        link: `${process.env.APP_URL}/welcome/api/auth/confirmEmail?email=${greatUser.email}&token=${token}`,
       });
       await mail.sendMail();
       const data = {
@@ -89,6 +89,9 @@ class UserController {
       if (!user) return Responses.Error(res, 403, { error: 'Wrong email or password' });
       const matchPasswords = comparePassword(password, user.password);
       if (!matchPasswords) return Responses.Error(res, 403, { error: 'Wrong email or password' });
+      if(user.isVerified === false) {
+        return Responses.Error(res, 403, { error: 'Your account have to be verified to login' });
+      }
       const newUser = {
         id: user.id, userName: user.userName, email: user.email, role: user.role
       };
@@ -147,7 +150,7 @@ class UserController {
       };
       const token = jwt.sign(payload, user.password);
 
-      const link = `${process.env.APP_URL}/ResetPassword?email=${payload.email}&token=${token}`;
+      const link = `${process.env.APP_URL}/reset?email=${payload.email}&token=${token}`;
       const mail = new Mail({
         to: email,
         subject: 'Password Reset',

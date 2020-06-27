@@ -7,7 +7,7 @@ const style = `
 .container {
   margin: auto;
   width: 70%;
-  background: linear-gradient(#f91942 40%, #fdfdfd 0);
+  background: linear-gradient(#223f9c 40%, #fdfdfd 0);
   display: flex;
   height: 600px;
 }
@@ -20,7 +20,7 @@ const style = `
   text-decoration: none;
   text-transform: capitalize;
   font-size: medium;
-  background: #f91942;
+  background: #223f9c;
   border-radius: 3px;
   color: white;
 }
