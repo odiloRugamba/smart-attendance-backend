@@ -89,7 +89,7 @@ class UserController {
       if (!user) return Responses.Error(res, 403, { error: 'Wrong email or password' });
       const matchPasswords = comparePassword(password, user.password);
       if (!matchPasswords) return Responses.Error(res, 403, { error: 'Wrong email or password' });
-      if(user.isVerified === false) {
+      if (user.isVerified === false) {
         return Responses.Error(res, 403, { error: 'Your account have to be verified to login' });
       }
       const newUser = {
