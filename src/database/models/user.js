@@ -55,10 +55,6 @@ export default (sequelize, DataTypes) => {
         allowNull: true,
         type: DataTypes.STRING
       },
-      social_id: {
-        type: DataTypes.STRING,
-        allowNull: true
-      },
       lastLogin: {
         type: DataTypes.STRING,
         allowNull: true
@@ -78,7 +74,7 @@ export default (sequelize, DataTypes) => {
         defaultValue: false
       }
     },
-    {}
+    {paranoid: true}
   );
 
   return User;

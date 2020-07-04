@@ -6,49 +6,29 @@ export default (sequelize, DataTypes) => {
         allowNull: true,
         type: DataTypes.STRING
       },
-      headFirstName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      headLaststName: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      headEmail: {
+      schoolEmail: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      headPhone: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      schoolProvince: {
-        allowNull: true,
-        type: DataTypes.DATE
-      },
-      schoolDistrict: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      schoolSector: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      schoolCell: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      schoolphone: {
-        allowNull: true,
-        type: DataTypes.DATE
-      },
-      schoolEmail: {
+      schoolPhone: {
         allowNull: true,
         type: DataTypes.STRING
       },
       schoolLogo: {
         allowNull: true,
         type: DataTypes.STRING
+      },
+      villageId: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+      },
+      address: {
+        allowNull: true,
+        type: DataTypes.STRING
+      },
+      userId: {
+        allowNull: false,
+        type: DataTypes.INTEGER
       },
     }, {}
   );

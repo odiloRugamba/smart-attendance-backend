@@ -7,28 +7,16 @@ module.exports = {
       type: Sequelize.INTEGER
     },
     schoolId: {
+      allowNull: true,
       type: Sequelize.INTEGER
     },
-    firstName: {
-      type: Sequelize.STRING
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
     },
-    lastName: {
-      type: Sequelize.STRING
-    },
-    email: {
-      type: Sequelize.STRING
-    },
-    phoneNumber: {
-      type: Sequelize.STRING
-    },
-    roleName: {
-      type: Sequelize.STRING
-    },
-    password: {
-      type: Sequelize.STRING
-    },
-    profileImage: {
-      type: Sequelize.STRING
+    role: {
+      type: Sequelize.ENUM(['HEAD','DISCIPLINE','DOS','TEACHER']),
+      allowNull: true,
     },
     createdAt: {
       allowNull: false,

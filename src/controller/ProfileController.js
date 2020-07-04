@@ -32,11 +32,13 @@ class ProfileController {
     const User = await UserService.getProfile(id);
     return Responses.Success(res, 200, 'successfully retrieved all users', User);
   }
-  /* function fetch all users
+  /* 
+    * function fetch all users
     * @param {object} req
     * @param {object} res
     * @param {function} next
-    * @returns {object} responses */
+    * @returns {object} responses 
+    */
 
   static async updateProfile(req, res, next) {
     try {

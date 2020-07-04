@@ -5,35 +5,15 @@ export default (sequelize, DataTypes) => {
     {
       schoolId: {
         allowNull: true,
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
       },
-      firstName: {
-        type: DataTypes.STRING,
+      userId: {
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
-      lastName: {
-        type: DataTypes.STRING,
+      role: {
+        type: DataTypes.ENUM(['HEAD','DISCIPLINE','DOS','TEACHER']),
         allowNull: true,
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      phoneNumber: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      roleName: {
-        allowNull: true,
-        type: DataTypes.DATE
-      },
-      password: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
-      profileImage: {
-        allowNull: true,
-        type: DataTypes.STRING
       },
     }, {}
   );

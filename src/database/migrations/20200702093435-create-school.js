@@ -7,40 +7,32 @@ module.exports = {
       type: Sequelize.INTEGER
     },
     schoolName: {
-      type: Sequelize.STRING
-    },
-    headFirstName: {
-      type: Sequelize.STRING
-    },
-    headLaststName: {
-      type: Sequelize.STRING
-    },
-    headEmail: {
-      type: Sequelize.STRING
-    },
-    headPhone: {
-      type: Sequelize.STRING
-    },
-    schoolProvince: {
-      type: Sequelize.STRING
-    },
-    schoolDistrict: {
-      type: Sequelize.STRING
-    },
-    schoolSector: {
-      type: Sequelize.STRING
-    },
-    schoolCell: {
-      type: Sequelize.STRING
-    },
-    schoolphone: {
+      allowNull: true,
       type: Sequelize.STRING
     },
     schoolEmail: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    schoolPhone: {
+      allowNull: true,
       type: Sequelize.STRING
     },
     schoolLogo: {
+      allowNull: true,
       type: Sequelize.STRING
+    },
+    villageId: {
+      allowNull: false,
+      type: Sequelize.INTEGER
+    },
+    address: {
+      allowNull: true,
+      type: Sequelize.STRING
+    },
+    userId: {
+      allowNull: false,
+      type: Sequelize.INTEGER
     },
     createdAt: {
       allowNull: false,
