@@ -34,15 +34,15 @@ export default {
     isVerified: true
   },
   {
-  email: 'kwizeraelie@gmail.com',
-  userName: 'Buddy',
-  firstName: 'Elie',
-  lastName: 'Kwizera',
-  role: 'local-governmant',
-  rememberMe: true,
-  password: await hashPassword('Justpass123'),
-  isVerified: true
-}], {}),
+    email: 'kwizeraelie@gmail.com',
+    userName: 'Buddy',
+    firstName: 'Elie',
+    lastName: 'Kwizera',
+    role: 'local-governmant',
+    rememberMe: true,
+    password: await hashPassword('Justpass123'),
+    isVerified: true
+  }], {}),
 
   down: queryInterface => queryInterface.bulkDelete('Users', null, {})
 };

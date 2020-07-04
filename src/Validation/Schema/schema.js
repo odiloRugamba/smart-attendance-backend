@@ -26,7 +26,7 @@ class Schema {
           });
           return errors;
         }),
-        firstName: Joi.string()
+      firstName: Joi.string()
         .min(3)
         .max(30)
         .required()
@@ -37,7 +37,7 @@ class Schema {
           'any.required': 'firstName is required',
           'string.empty': 'firstName is not allowed to be empty'
         }),
-        lastName: Joi.string()
+      lastName: Joi.string()
         .min(3)
         .max(30)
         .required()
@@ -148,8 +148,6 @@ class Schema {
 
     return schema.validate(data);
   }
-
-
 }
 
 export default Schema;
