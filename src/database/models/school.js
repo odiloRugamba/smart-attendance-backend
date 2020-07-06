@@ -30,10 +30,26 @@ export default (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.INTEGER
       },
-    }, {}
+    }, {paranoid: true}
   );
-  School.associate = () => {
-    // associations can be defined here
+  School.associate = (models) => {
+    models.School.belongsTo(models.Village, {foreignKey: { name: "villageId" } });
   };
+  School.associate = (models) => {
+    models.School.belongsTo(models.User, {foreignKey: { name: "userId" } });
+  };
+  School.associate = (models) => {
+    models.School.hasMany(models.Student, {foreignKey: { name: "schoolId" } });
+  };
+  School.associate = (models) => {
+    models.School.hasMany(models.Staff, {foreignKey: { name: "schoolId" } });
+  };
+  School.associate = (models) => {
+    models.School.hasMany(models.GateAttendance, {foreignKey: { name: "schoolId" } });
+  };
+  School.associate = (models) => {
+    models.School.hasMany(models.Class, {foreignKey: { name: "schoolId" } });
+  };
+
   return School;
 };

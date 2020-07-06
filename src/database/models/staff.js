@@ -15,10 +15,13 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.ENUM(['HEAD','DISCIPLINE','DOS','TEACHER']),
         allowNull: true,
       },
-    }, {}
+    }, {paranoid: true}
   );
-  Staff.associate = () => {
-    // associations can be defined here
+  Staff.associate = (models) => {
+    models.Staff.belongsTo(models.School, {foreignKey: { name: "schoolId" } });
+  };
+  Staff.associate = (models) => {
+    models.Staff.belongsTo(models.User, {foreignKey: { name: "userId" } });
   };
   return Staff;
 };

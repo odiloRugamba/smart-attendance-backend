@@ -21,9 +21,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
     }
-  }, {});
+  }, {paranoid: true});
   Village.associate = function(models) {
-    // associations can be defined here
+    models.Village.hasMany(models.School, {foreignKey: { name: "villageId" } });
+  };
+  Village.associate = function(models) {
+    models.Village.hasMany(models.Student, {foreignKey: { name: "villageId" } });
   };
   return Village;
 };

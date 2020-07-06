@@ -76,6 +76,18 @@ export default (sequelize, DataTypes) => {
     },
     {paranoid: true}
   );
+  User.associate = function(models) {
+    models.User.hasOne(models.School, {foreignKey: { name: "userId" } });
+  }
+  User.associate = function(models) {
+    models.User.hasMany(models.ClassTeacher, {foreignKey: { name: "userId" } });
+  }
+  User.associate = function(models) {
+    models.User.hasMany(models.Staff, {foreignKey: { name: "userId" } });
+  }
+  User.associate = function(models) {
+    models.User.hasMany(models.EducationOfficer, {foreignKey: { name: "userId" } });
+  }
 
   return User;
 };

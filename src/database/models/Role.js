@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
   }, { freezeTableName: true });
-  Roles.associate = () => {
+  Roles.associate = (models) => {
   };
   return Roles;
 };

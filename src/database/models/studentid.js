@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.ENUM(['SPECIAL-ID','RFID-ID'])
     }
-  }, {});
-  StudentId.associate = function(models) {
-    // associations can be defined here
+  }, {paranoid: true});
+  StudentId.associate = function(models) { 
+    models.StudentId.belongsTo(models.Student, {foreignKey: { name: "studentId" } });
   };
   return StudentId;
 };

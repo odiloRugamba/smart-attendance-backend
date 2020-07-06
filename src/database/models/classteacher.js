@@ -9,9 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     }
-  }, {});
-  ClassTeacher.associate = function(models) {
-    // associations can be defined here
-  };
+  }, {paranoid: true});
+  // ClassTeacher.associate = function(models) {
+  //   models.ClassTeacher.belongsToMany(models.Class, {foreignKey: { name: "classId" } });
+  // };
+  // ClassTeacher.associate = function(models) {
+  //   models.ClassTeacher.belongsToMany(models.User, {foreignKey: { name: "userId" } });
+  // };
   return ClassTeacher;
 };

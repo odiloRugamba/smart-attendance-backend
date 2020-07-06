@@ -3,23 +3,26 @@ module.exports = (sequelize, DataTypes) => {
   const GateAttendance = sequelize.define('GateAttendance', {
     studentId:{
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     time: {
       allowNull: false,
-      type: Sequelize.DATE
+      type: DataTypes.DATE
     },
-    classId:{
+    schoolId:{
       allowNull: false,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
     },
     gate:{
       allowNull: false,
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
-  }, {});
+  }, {paranoid: true});
   GateAttendance.associate = function(models) {
-    // associations can be defined here
+    models.GateAttendance.belongsTo(models.School, {foreignKey: { name: "schoolId" } });
+  };
+  GateAttendance.associate = function(models) {
+    models.GateAttendance.belongsTo(models.Student, {foreignKey: { name: "studentId" } });
   };
   return GateAttendance;
 };

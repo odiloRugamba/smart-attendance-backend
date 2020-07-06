@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('NOW')
       },
-      classId: {
+      schoolId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

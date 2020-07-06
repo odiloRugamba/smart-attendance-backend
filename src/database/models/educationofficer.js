@@ -33,9 +33,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER
     }
-  }, {});
+  }, {paranoid: true});
   EducationOfficer.associate = function(models) {
-    // associations can be defined here
+    models.EducationOfficer.belongsTo(models.User, {foreignKey: { name: "userId" } });
   };
   return EducationOfficer;
 };
