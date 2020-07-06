@@ -74,6 +74,10 @@ export default {
       type: Sequelize.BOOLEAN,
       defaultValue: false
     },
+    deletedAt: {
+      allowNull: true,
+      type: Sequelize.DATE
+    },
     createdAt: {
       allowNull: true,
       type: Sequelize.DATE,

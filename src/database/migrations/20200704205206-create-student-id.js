@@ -20,6 +20,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.ENUM(['SPECIAL-ID','RFID-ID'])
       },
+      deletedAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

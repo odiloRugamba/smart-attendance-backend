@@ -18,6 +18,10 @@ module.exports = {
       type: Sequelize.ENUM(['HEAD','DISCIPLINE','DOS','TEACHER']),
       allowNull: true,
     },
+    deletedAt: {
+      allowNull: true,
+      type: Sequelize.DATE
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE
