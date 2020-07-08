@@ -42,7 +42,7 @@ class ProfileController {
 
   static async updateProfile(req, res, next) {
     try {
-      const { id } = req.userData;
+      const { id } = req.user;
       // await UserService.updateUser({ id: userId }, req.body);
         console.log(id);
         console.log(req.body);

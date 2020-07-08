@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     schoolYear: {
         allowNull: false,
         type: DataTypes.INTEGER,
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   }, {paranoid: true});
   // ClassStudent.associate = function(models) {

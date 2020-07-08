@@ -28,7 +28,7 @@ class Authenticate {
           return res.status(401).json({ status: 401, error: 'Please login required' });
         }
 
-        req.userData = payload;
+        req.user = payload;
         next();
       });
     } catch (ex) {

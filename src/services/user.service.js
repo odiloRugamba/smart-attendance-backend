@@ -103,6 +103,20 @@ class UserServices {
 
   /**
    *
+   * @param {object} fields
+   *
+   * @returns {object} created user
+   */
+  static async create(fields) {
+    try {
+      return await User.create(fields);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
+  /**
+   *
    * @param {object} userId
    *
    * @param {object} profileData to update for user
@@ -168,7 +182,7 @@ class UserServices {
    * @returns {object} return the user's data
    */
   static async getUserById(id) {
-    const userData = await User.findByPk(
+    const user = await User.findByPk(
       id,
       {
         attributes: [
@@ -190,7 +204,7 @@ class UserServices {
         include: ['LineManager'],
       },
     );
-    return userData;
+    return user;
   }
 
   /**

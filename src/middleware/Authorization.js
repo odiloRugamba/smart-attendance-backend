@@ -8,8 +8,8 @@ const { Responses } = helpers;
  */
 
 const authorize = (allowed) => (req, res, next) => {
-  const { userData } = req;
-  const { role } = userData;
+  const { user } = req;
+  const { role } = user;
   if (allowed.includes(role)) {
     next();
   } else {

@@ -26,7 +26,7 @@ module.exports = {
       allowNull: false,
       type: Sequelize.INTEGER
     },
-    address: {
+    schoolAddress: {
       allowNull: true,
       type: Sequelize.STRING
     },

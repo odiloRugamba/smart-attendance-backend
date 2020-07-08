@@ -12,7 +12,7 @@ class AdminController {
    */
   static async updateUserRole(req, res) {
     const { email, roleName } = req.body;
-    const { role } = req.userData;
+    const { role } = req.user;
 
     try {
       const existingUser = await UserService.findByEmail(email);

@@ -10,11 +10,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {paranoid: true});
-  // ClassTeacher.associate = function(models) {
-  //   models.ClassTeacher.belongsToMany(models.Class, {foreignKey: { name: "classId" } });
-  // };
-  // ClassTeacher.associate = function(models) {
-  //   models.ClassTeacher.belongsToMany(models.User, {foreignKey: { name: "userId" } });
-  // };
+  
+  ClassTeacher.associate = function(models) {
+    models.ClassTeacher.belongsTo(models.User, {foreignKey: { name: "userId" } });
+    models.ClassTeacher.belongsTo(models.Class, {foreignKey: { name: "classId" } });
+  };
   return ClassTeacher;
 };

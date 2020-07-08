@@ -8,5 +8,9 @@ const router = Router();
 router.use('/account/admin', adminRoute);
 router.use('/auth', authUser);
 router.use('/profile', profileRoute);
+router.use('/schools', require("./school"));
+router.use('/staffs', require("./staff"));
+router.use('/classes', require("./class"));
+router.use('/teachers', require("./classTeacher"));
  
 export default router;

@@ -22,7 +22,7 @@ export default (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.INTEGER
       },
-      address: {
+      schoolAddress: {
         allowNull: true,
         type: DataTypes.STRING
       },

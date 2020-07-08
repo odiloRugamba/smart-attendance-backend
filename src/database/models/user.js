@@ -10,19 +10,6 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true
       },
-      userName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: {
-            msg: 'Please enter your Username'
-          },
-          notEmpty: {
-            args: true,
-            msg: 'Username is not allowed to be empty'
-          }
-        }
-      },
       phone: {
         allowNull: true,
         type: DataTypes.STRING
@@ -78,14 +65,8 @@ export default (sequelize, DataTypes) => {
   );
   User.associate = function(models) {
     models.User.hasOne(models.School, {foreignKey: { name: "userId" } });
-  }
-  User.associate = function(models) {
     models.User.hasMany(models.ClassTeacher, {foreignKey: { name: "userId" } });
-  }
-  User.associate = function(models) {
     models.User.hasMany(models.Staff, {foreignKey: { name: "userId" } });
-  }
-  User.associate = function(models) {
     models.User.hasMany(models.EducationOfficer, {foreignKey: { name: "userId" } });
   }
 

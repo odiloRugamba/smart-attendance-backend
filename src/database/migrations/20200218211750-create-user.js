@@ -14,10 +14,6 @@ export default {
       allowNull: true,
       type: Sequelize.STRING
     },
-    userName: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
     phone: {
       allowNull: true,
       type: Sequelize.STRING
