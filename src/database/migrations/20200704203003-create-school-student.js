@@ -16,9 +16,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      leaveYear: {
-        allowNull: true,
-        type: Sequelize.INTEGER
+      active: {
+        defaultValue: true,
+        type: Sequelize.BOOLEAN
       },
       studentId: {
         allowNull: false,

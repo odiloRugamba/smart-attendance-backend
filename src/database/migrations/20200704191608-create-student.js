@@ -32,14 +32,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      schoolId: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      classId: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE

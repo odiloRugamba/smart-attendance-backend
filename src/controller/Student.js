@@ -9,18 +9,50 @@ const {
 
 class Student {
 
+ 
+
+  static async getStudent(req, res) {
+    const studentId = req.params.studentId;
+    const student = await StudentService.getStudent(studentId);
+    return Responses.Success(res, 200, 'successfully retrieved Student requested', student);
+  }
+
   static async getStudentsBySchool(req, res) {
     const schoolId = req.params.schoolId;
     const students = await StudentService.getAll(schoolId);
     return Responses.Success(res, 200, 'successfully retrieved all students requested', students);
   }
 
-  static async getStudentById(req, res) {
-    const { id } = req.params;
-
-    const student = await StudentService.getProfile(id);
-    return Responses.Success(res, 200, 'successfully retrieved Student requested', student);
+  static async getStudentsByClass(req, res) {
+    const classId = req.params.classId;
+    const students = await StudentService.getAll(classId);
+    return Responses.Success(res, 200, 'successfully retrieved all students requested', students);
   }
+
+  static async create(req, res) {
+    try {
+      // const {
+      //         firstName,
+      //         lastName,
+      //         gender,
+      //         dob,
+      //         disability,
+      //         villageId,
+      //         schoolId,
+      //         classId,
+      //         guardianFirstName,
+      //         guardianLastName,
+      //         guardianPhone,
+      //         guardianEmail,
+      //       } = req.body;
+
+      const student = await StudentService.create(req.body);
+      return res.status(201).json({ status: 201, message: "Student created", student });
+
+    } catch (err) {
+      return Responses.Error(res, 500, 'Internal Server Error');
+    }
+  } 
 
   static async update(req, res, next) {
     try {
@@ -32,16 +64,6 @@ class Student {
     }
   }
 
-  static async create(req, res) {
-    try {
-
-      const result = await StudentService.create(req.body);
-
-      return res.status(201).json({ status: 201, message: "Student created", result });
-    } catch (err) {
-      return Responses.Error(res, 500, 'Internal Server Error');
-    }
-  } 
   
   static async delete(req, res, next) {
     try {
@@ -52,8 +74,7 @@ class Student {
       return next(error);
     }
   }
-
   
 }
 
-export default ProfileController;
+export default Student;

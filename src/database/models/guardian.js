@@ -21,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
   Guardian.associate = function(models) {
     models.Guardian.belongsToMany(models.Student, {
       through: {
-        model: models.StudentGuardian,
-        foreignKey: {
-          name: "guardianId"
-        }
+        model: models.StudentGuardian
+      },
+      foreignKey: {
+        name: "guardianId"
       }
     });
   };

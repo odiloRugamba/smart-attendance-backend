@@ -86,20 +86,31 @@ class UserController {
       const { email, password } = req.body;
 
       const user = await UserService.findUserByEmail(email);
+
       if (!user) return Responses.Error(res, 403, { error: 'Wrong email or password' });
       const matchPasswords = comparePassword(password, user.password);
       if (!matchPasswords) return Responses.Error(res, 403, { error: 'Wrong email or password' });
       if (user.isVerified === false) {
         return Responses.Error(res, 403, { error: 'Your account have to be verified to login' });
       }
+      let school = null;
+      if(user.School !== null){
+        school = {
+          id: user.School.id,
+          name: user.School.schoolName,
+          logo: user.School.logo
+        }
+      }
       const newUser = {
-        id: user.id, userName: user.userName, email: user.email, role: user.role
+        id: user.id, userName: user.userName, email: user.email, role: user.role, school
       };
+      console.log(newUser);
       const token = jwt.sign(newUser, process.env.SECRET_KEY);
       return Responses.Success(res, 200, `Hello ${user.userName}! you are Logged in successfully`, {
         token,
         id: user.id,
         userName: user.userName,
+        school,
         role: user.role,
         lastLogin: user.lastLogin,
         isVerified: user.isVerified

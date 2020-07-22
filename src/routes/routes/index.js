@@ -12,5 +12,6 @@ router.use('/schools', require("./school"));
 router.use('/staffs', require("./staff"));
 router.use('/classes', require("./class"));
 router.use('/teachers', require("./classTeacher"));
+router.use('/students', require("./student"));
  
 export default router;

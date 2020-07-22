@@ -1,19 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const SchoolStudent = sequelize.define('SchoolStudent', {
-    schoolId: {
+      schoolId: {
         allowNull: false,
         type: DataTypes.INTEGER
       },
-    entryYear: {
+      entryYear: {
         allowNull: false,
         type: DataTypes.INTEGER
       },
-    leaveYear: {
-        allowNull: true,
-        type: DataTypes.INTEGER
+      active: {
+        defaultValue: true,
+        type: DataTypes.BOOLEAN
       },
-    studentId: {
+      studentId: {
         allowNull: false,
         type: DataTypes.INTEGER
       }

@@ -49,17 +49,68 @@ class StudentServices {
     }
   }
 
-  static async create(data) {
+  static async create(student) {
     try {
-      return await Student.create(data);
+      const {
+              firstName,
+              lastName,
+              gender,
+              dob,
+              disability,
+              villageId,
+              schoolId,
+              classId,
+              enrollmentYear,
+              guardianFirstName,
+              guardianLastName,
+              guardianPhone,
+              guardianEmail,
+              guardianRelationship
+            } = student
+      let guardian = await models.Guardian.findOne({where: {phone: student.guardianPhone, email: student.guardianEmail}});
+      if(!guardian){
+            guardian = await models.Guardian.create({
+              firstName: guardianFirstName,
+              lastName: guardianLastName,
+              email: guardianEmail,
+              phone: guardianPhone,
+            });
+      }
+      const createdStudent = await Student.create({
+        firstName,
+        lastName,
+        gender,
+        dob,
+        disability,
+        villageId
+      });
+      await models.StudentGuardian.create({
+        studentId: createdStudent.id,
+        guardianId: guardian.id,
+        relationship: guardianRelationship
+      });
+      
+      await models.ClassStudent.create({
+        studentId: createdStudent.id,
+        classId: classId,
+        schoolYear: enrollmentYear
+      });
+      await models.SchoolStudent.create({
+        studentId: createdStudent.id,
+        schoolId: schoolId,
+        entryYear: enrollmentYear
+      });
+      
+      return student;
     } catch (e) {
+      console.log(e)
       throw new Error(e);
     }
   }
 
   static async delete(id) {
     try {
-      return await Student.destroy(id);
+      return await Student.destroy({where: {id}});
     } catch (e) {
       throw new Error(e);
     }

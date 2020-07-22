@@ -1,7 +1,7 @@
 export default {
   up: async queryInterface => queryInterface.bulkInsert('Schools', [{
     schoolName: 'Kayonza Modern Secondary School',
-    headheadLaststName: 'Karamaga',
+    headLaststName: 'Karamaga',
     headLaststName: 'Charles',
     headEmail: 'karamaga.charles@gmail.com',
     headPhone: '0788890527',
@@ -15,7 +15,7 @@ export default {
   },
   {
     schoolName: 'Groupe Scolaire saint Andre',
-    headheadLaststName: 'Odilo',
+    headLaststName: 'Odilo',
     headLaststName: 'Rugamba',
     headEmail: 'Odilorugamba@gmail.com',
     headPhone: '0782677922',

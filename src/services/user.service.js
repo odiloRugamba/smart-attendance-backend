@@ -13,7 +13,14 @@ class UserServices {
    * @returns {object} user data from database
    */
   static async findUserByEmail(email) {
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({
+      where: {
+        email
+      },
+      include: {
+        model: models.School,
+      }
+    });
     if (!user) return null;
     const lastLogin = new Date().toISOString();
     await User.update({ lastLogin }, { where: { email } });

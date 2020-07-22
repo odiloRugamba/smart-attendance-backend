@@ -24,45 +24,23 @@ module.exports = (sequelize, DataTypes) => {
     villageId: {
       allowNull: false,
       type: DataTypes.STRING
-    },
-    schoolId: {
-      allowNull: false,
-      type: DataTypes.INTEGER
-    },
-    classId: {
-      allowNull: false,
-      type: DataTypes.INTEGER
     }
   }, {paranoid: true});
   Student.associate = function(models) {
-    models.Student.belongsTo(models.Class, {foreignKey: { name: "classId" } });
-  };
-  Student.associate = function(models) {
     models.Student.belongsTo(models.School, {foreignKey: { name: "schoolId" } });
-  };
-  Student.associate = function(models) {
     models.Student.belongsTo(models.Village, {foreignKey: { name: "villageId" } });
-  };
-  Student.associate = function(models) {
+
     models.Student.hasMany(models.StudentId, {foreignKey: { name: "studentId" } });
-  };
-  Student.associate = function(models) {
     models.Student.belongsToMany(models.Guardian, {
       through: {
-        model: models.StudentGuardian,
-        foreignKey: {
-          name: "studentId"
-        }
+        model: models.StudentGuardian
+      },
+      foreignKey: {
+        name: "studentId"
       }
     });
-  };
-  Student.associate = function(models) {
     models.Student.hasMany(models.SchoolStudent, {foreignKey: { name: "studentId" } });
-  };
-  Student.associate = function(models) {
     models.Student.hasMany(models.GateAttendance, {foreignKey: { name: "studentId" } });
-  };
-  Student.associate = function(models) {
     models.Student.hasMany(models.ClassAttendance, {foreignKey: { name: "studentId" } });
   };
 
