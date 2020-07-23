@@ -7,15 +7,13 @@ const { ClassTeacher } = models;
  * Class ClassTeacher services creates a middleware
  */
 class ClassTeacherServices {
-
-
   static async getTeacherClasses(userId) {
     try {
       return await ClassTeacher.findAll({
-        where: {userId},
+        where: { userId },
         include: {
           model: models.Class,
-          attributes: ['id','level','year','combination','label']
+          attributes: ['id', 'level', 'year', 'combination', 'label']
         },
         attributes: ['id']
       });
@@ -27,10 +25,10 @@ class ClassTeacherServices {
   static async getTeachers(schoolId) {
     try {
       return await models.Staff.findAll({
-        where: {role: "TEACHER", schoolId},
+        where: { role: 'TEACHER', schoolId },
         include: {
           model: models.User,
-          attributes: ['id','firstName','lastName','email','phone']
+          attributes: ['id', 'firstName', 'lastName', 'email', 'phone']
         }
       });
     } catch (error) {
@@ -41,12 +39,12 @@ class ClassTeacherServices {
   static async getClassTeachers(classId) {
     try {
       return await ClassTeacher.findAll({
-        where: {classId},
+        where: { classId },
         include: {
           model: models.User,
-          attributes: ['id','firstName','lastName','email','phone']
+          attributes: ['id', 'firstName', 'lastName', 'email', 'phone']
         },
-        attributes: ['id','classId']
+        attributes: ['id', 'classId']
       });
     } catch (error) {
       throw error;
@@ -63,7 +61,7 @@ class ClassTeacherServices {
 
   static async delete(id) {
     try {
-      return await ClassTeacher.destroy({where: {id}});
+      return await ClassTeacher.destroy({ where: { id } });
     } catch (e) {
       throw new Error(e);
     }

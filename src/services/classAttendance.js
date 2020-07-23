@@ -7,8 +7,6 @@ const { ClassAttendance } = models;
  * Class ClassAttendance services creates a middleware
  */
 class ClassAttendanceServices {
-
-
   static async getClassAttendance(param) {
     try {
       const classAttendance = await ClassAttendance.findOne({ where: param });

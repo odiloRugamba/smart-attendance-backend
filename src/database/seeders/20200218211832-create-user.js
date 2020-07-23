@@ -5,7 +5,6 @@ const { hashPassword } = hash;
 export default {
   up: async queryInterface => queryInterface.bulkInsert('Users', [{
     email: 'karangwa@gmail.com',
-    userName: 'Kemmy',
     firstName: 'Emmy',
     lastName: 'Karangwa',
     role: 'super-administrator',
@@ -15,7 +14,6 @@ export default {
   },
   {
     email: 'odilorugamba@gmail.com',
-    userName: 'Odilo',
     firstName: 'Rugamba',
     lastName: 'Odilo',
     role: 'super-administrator',
@@ -25,7 +23,6 @@ export default {
   },
   {
     email: 'brianrubimbura@gmail.com',
-    userName: 'Horton',
     firstName: 'Brian',
     lastName: 'Rubimbura',
     role: 'headmaster',
@@ -35,7 +32,6 @@ export default {
   },
   {
     email: 'kwizeraelie@gmail.com',
-    userName: 'Buddy',
     firstName: 'Elie',
     lastName: 'Kwizera',
     role: 'local-governmant',
