@@ -1,4 +1,4 @@
-import ClassAttendanceService from '../services/ClassAttendance';
+import ClassAttendanceService from '../services/classAttendance';
 import helpers from '../Utils';
 
 
@@ -7,7 +7,6 @@ const {
 } = helpers;
 
 class ClassAttendance {
-
   static async getAll(req, res) {
     const classAttendances = await ClassAttendanceService.getAll();
     return Responses.Success(res, 200, 'successfully retrieved all class Attendances requested', classAttendances);
@@ -33,13 +32,13 @@ class ClassAttendance {
   static async create(req, res) {
     try {
       const result = await ClassAttendanceService.create(req.body);
-      return res.status(201).json({ status: 201, message: "Class Teacher created", result });
+      return res.status(201).json({ status: 201, message: 'Class Teacher created', result });
     } catch (err) {
       return Responses.Error(res, 500, 'Internal Server Error');
     }
-  } 
-  
-  static async update(req, res, next) {
+  }
+
+  static async delete(req, res, next) {
     try {
       const { id } = req.params.classAttendanceId;
       const classAttendance = await ClassAttendanceService.delete(id);
@@ -50,4 +49,4 @@ class ClassAttendance {
   }
 }
 
-export default ProfileController;
+export default ClassAttendance;

@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import SchoolService from '../services/school';
 import UserService from '../services/user.service';
 import helpers from '../Utils';
@@ -10,7 +11,6 @@ const {
 } = helpers;
 
 class School {
-
   static async getAll(req, res) {
     const Schools = await SchoolService.getAll();
     return Responses.Success(res, 200, 'successfully retrieved all Schools requested', Schools);
@@ -25,16 +25,18 @@ class School {
 
   static async update(req, res, next) {
     try {
-      const schoolId = req.params.schoolId;
+      const { schoolId } = req.params;
       const {
-            schoolName,
-            schoolEmail,
-            schoolAddress,
-            schoolPhone,
-            villageId
-          } = req.body
+        schoolName,
+        schoolEmail,
+        schoolAddress,
+        schoolPhone,
+        villageId
+      } = req.body;
 
-      const school = await SchoolService.update(schoolId, {schoolName, schoolEmail, schoolAddress, schoolPhone, villageId});
+      const school = await SchoolService.update(schoolId, {
+        schoolName, schoolEmail, schoolAddress, schoolPhone, villageId
+      });
       return Responses.Success(res, 200, 'School successfully Updated', school);
     } catch (error) {
       return next(error);
@@ -97,7 +99,7 @@ class School {
       console.log(err);
       return Responses.Error(res, 500, 'Internal Server Error');
     }
-  } 
+  }
 
   static async delete(req, res, next) {
     try {

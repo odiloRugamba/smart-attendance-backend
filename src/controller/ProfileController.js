@@ -32,22 +32,22 @@ class ProfileController {
     const User = await UserService.getProfile(id);
     return Responses.Success(res, 200, 'successfully retrieved all users', User);
   }
-  /* 
+  /*
     * function fetch all users
     * @param {object} req
     * @param {object} res
     * @param {function} next
-    * @returns {object} responses 
+    * @returns {object} responses
     */
 
   static async updateProfile(req, res, next) {
     try {
       const { id } = req.user;
       // await UserService.updateUser({ id: userId }, req.body);
-        console.log(id);
-        console.log(req.body);
-        
-        
+      console.log(id);
+      console.log(req.body);
+
+
       await UserService.updateOrCreate(id, req.body);
 
       const profile = await UserService.getProfile(id);

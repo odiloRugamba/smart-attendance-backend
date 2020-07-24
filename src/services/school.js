@@ -7,8 +7,6 @@ const { School } = models;
  * Class School services creates a middleware
  */
 class SchoolServices {
-
-
   static async getSchoolById(id) {
     try {
       const school = await School.findOne({ where: { id } });
@@ -42,7 +40,7 @@ class SchoolServices {
     try {
       return await School.update(changes, {
         returning: true,
-        where: {id}
+        where: { id }
       });
     } catch (e) {
       throw new Error(e);

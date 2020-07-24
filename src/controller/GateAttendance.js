@@ -1,4 +1,4 @@
-import GateAttendanceService from '../services/GateAttendance';
+import GateAttendanceService from '../services/gateAttendance';
 import helpers from '../Utils';
 
 
@@ -7,7 +7,6 @@ const {
 } = helpers;
 
 class GateAttendance {
-
   static async getAll(req, res) {
     const gateAttendances = await GateAttendanceService.getAll();
     return Responses.Success(res, 200, 'successfully retrieved all Gate Attendances requested', gateAttendances);
@@ -33,13 +32,13 @@ class GateAttendance {
   static async create(req, res) {
     try {
       const result = await GateAttendanceService.create(req.body);
-      return res.status(201).json({ status: 201, message: "Class Teacher created", result });
+      return res.status(201).json({ status: 201, message: 'Class Teacher created', result });
     } catch (err) {
       return Responses.Error(res, 500, 'Internal Server Error');
     }
-  } 
-  
-  static async update(req, res, next) {
+  }
+
+  static async delete(req, res, next) {
     try {
       const { id } = req.params.gateAttendanceId;
       const gateAttendance = await GateAttendanceService.delete(id);
@@ -50,4 +49,4 @@ class GateAttendance {
   }
 }
 
-export default ProfileController;
+export default GateAttendance;

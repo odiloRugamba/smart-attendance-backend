@@ -7,8 +7,6 @@ const { GateAttendance } = models;
  * Class GateAttendance services creates a middleware
  */
 class GateAttendanceServices {
-
-
   static async getGateAttendance(param) {
     try {
       const gateAttendance = await GateAttendance.findOne({ where: param });

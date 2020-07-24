@@ -18,7 +18,7 @@ class Student {
   }
 
   static async getStudentsBySchool(req, res) {
-    const schoolId = req.params.schoolId;
+    const { schoolId } = req.params;
     const students = await StudentService.getAll(schoolId);
     return Responses.Success(res, 200, 'successfully retrieved all students requested', students);
   }
@@ -64,7 +64,16 @@ class Student {
     }
   }
 
-  
+  static async create(req, res) {
+    try {
+      const result = await StudentService.create(req.body);
+
+      return res.status(201).json({ status: 201, message: 'Student created', result });
+    } catch (err) {
+      return Responses.Error(res, 500, 'Internal Server Error');
+    }
+  }
+
   static async delete(req, res, next) {
     try {
       const { id } = req.params.Student;
@@ -74,7 +83,6 @@ class Student {
       return next(error);
     }
   }
-  
 }
 
 export default Student;

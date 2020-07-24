@@ -33,7 +33,7 @@ class UserController {
   static async signUp(req, res) {
     try {
       const {
-        email, userName, password, phoneNumber
+        email, lastName,  firstName, password, phoneNumber
       } = req.body;
       const existingUser = await UserService.findByEmail(email);
 
@@ -43,14 +43,14 @@ class UserController {
       const newUser = { ...req.body, password: hashPassword(password), verified: false };
       const user = await models.User.create(newUser);
       const greatUser = {
-        id: user.id, role: user.role, phoneNumber: user.phoneNumber, userName: user.userName, email: user.email
+        id: user.id, role: user.role, phoneNumber: user.phoneNumber, lastName: user.lastName, firstName: user.firstName, email: user.email
       };
       const token = jwt.sign(greatUser, process.env.SECRET_KEY);
 
       const mail = new Mail({
         to: user.email,
         subject: 'Welcome to Smart Gate',
-        messageHeader: `Hi, ${user.userName}!`,
+        messageHeader: `Hi, ${user.firstName}!`,
         messageBody: 'We are exicted to get you started. First, you have to verify your account. Just click on the link below',
         iButton: true
       });
@@ -62,7 +62,8 @@ class UserController {
       const data = {
         id: user.id,
         token,
-        userName,
+        firstName,
+        lastName,
         phoneNumber,
         email,
         role: user.role,
@@ -105,10 +106,11 @@ class UserController {
         id: user.id, userName: user.userName, email: user.email, role: user.role, school
       };
       const token = jwt.sign(newUser, process.env.SECRET_KEY);
-      return Responses.Success(res, 200, `Hello ${user.userName}! you are Logged in successfully`, {
+      return Responses.Success(res, 200, `Hello ${user.email}! you are Logged in successfully`, {
         token,
         id: user.id,
-        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName,
         school,
         role: user.role,
         lastLogin: user.lastLogin,
@@ -191,8 +193,8 @@ class UserController {
       const { email, token } = req.params;
       const user = await UserService.findByEmail(email);
       if (!user) return Responses.Error(res, 404, 'User with that email not found');
-      const valid = Auth.tokenChecker(token, user.password);
-      if (!valid) return Responses.Error(res, 401, 'Password reset Link has expired, Request another link to perform the action');
+      // const valid = Auth.tokenChecker(token, user.password);
+      // if (!valid) return Responses.Error(res, 401, 'Password reset Link has expired, Request another link to perform the action');
 
       const {
         password,

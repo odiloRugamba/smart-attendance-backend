@@ -7,8 +7,6 @@ const { Staff } = models;
  * Class Staff services creates a middleware
  */
 class StaffServices {
-
-
   static async getStaffById(id) {
     try {
       const staff = await Staff.findOne({
@@ -34,7 +32,7 @@ class StaffServices {
           model: models.User,
           attributes: ['firstName', 'lastName', 'email', 'phone']
         },
-        where: param 
+        where: param
       });
       return staff;
     } catch (error) {
@@ -51,7 +49,7 @@ class StaffServices {
           attributes: ['firstName', 'lastName', 'email', 'phone']
         },
         where: param,
-        attributes: ['id','schoolId','userId','role','createdAt']
+        attributes: ['id', 'schoolId', 'userId', 'role', 'createdAt']
       });
       return staffs;
     } catch (error) {
@@ -60,11 +58,10 @@ class StaffServices {
   }
 
   static async update(id, changes) {
-
     try {
       return await Staff.update(changes, {
         returning: true,
-        where: {id}
+        where: { id }
       });
     } catch (e) {
       throw new Error(e);
@@ -81,7 +78,7 @@ class StaffServices {
 
   static async delete(id) {
     try {
-      return await Staff.destroy({where: {id}});
+      return await Staff.destroy({ where: { id } });
     } catch (e) {
       throw new Error(e);
     }
