@@ -104,7 +104,6 @@ class UserController {
       const newUser = {
         id: user.id, userName: user.userName, email: user.email, role: user.role, school
       };
-      console.log(newUser);
       const token = jwt.sign(newUser, process.env.SECRET_KEY);
       return Responses.Success(res, 200, `Hello ${user.userName}! you are Logged in successfully`, {
         token,

@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import Mail from "../Utils/mail/mail"
 import { upload } from '../Utils/ImageUploader';
 
-
 const {
   Responses,
 } = helpers;
@@ -24,7 +23,6 @@ class School {
     return Responses.Success(res, 200, 'successfully retrieved school requested', School);
   }
 
-  
   static async update(req, res, next) {
     try {
       const schoolId = req.params.schoolId;
@@ -78,8 +76,6 @@ class School {
                     email: head.email
                   };
           const token = jwt.sign(payload, process.env.SECRET_KEY);
-
-
             const mail = new Mail({
                 to: head.email,
                 subject: 'Welcome to Smart Gate',
