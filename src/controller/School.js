@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import SchoolService from '../services/school';
 import UserService from '../services/user.service';
 import helpers from '../Utils';
-import jwt from "jsonwebtoken";
 import Mail from "../Utils/mail/mail"
 import { upload } from '../Utils/ImageUploader';
 

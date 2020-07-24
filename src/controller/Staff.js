@@ -34,6 +34,7 @@ class Staff {
 
   static async create(req, res) {
     try {
+      console.log(req.body);
       const {
         firstName,
         lastName,
@@ -96,6 +97,7 @@ class Staff {
       };
       return res.status(201).json({ status: 201, message: 'Staff created', staff });
     } catch (err) {
+      console.log(err);
       return Responses.Error(res, 500, 'Internal Server Error');
     }
   }

@@ -12,6 +12,7 @@ const {
 
 
 router.post('/', verifyToken, SchoolCtrl.create);
+router.get('/', verifyToken, SchoolCtrl.getAll);
 router.put('/:schoolId', verifyToken, SchoolCtrl.update);
  
 
