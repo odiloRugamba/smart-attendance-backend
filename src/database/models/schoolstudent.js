@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const SchoolStudent = sequelize.define('SchoolStudent', {
-      schoolId: {
+      SchoolId: {
         allowNull: false,
         type: DataTypes.INTEGER
       },

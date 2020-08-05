@@ -97,7 +97,7 @@ class StudentServices {
       });
       await models.SchoolStudent.create({
         studentId: createdStudent.id,
-        schoolId: schoolId,
+        SchoolId: schoolId,
         entryYear: enrollmentYear
       });
       

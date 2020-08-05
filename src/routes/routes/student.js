@@ -2,6 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import StudentCtrl from '../../controller/Student';
 import middlewares from '../../middleware/authenticate';
+import {
+  createStudentValidation
+} from '../../Validation/validation/student';
 
 dotenv.config();
 
@@ -11,7 +14,7 @@ const {
 } = middlewares;
 
 
-router.post('/', verifyToken, StudentCtrl.create);
+router.post('/', verifyToken, createStudentValidation, StudentCtrl.create);
 // router.get('/:schoolId', verifyToken, StudentCtrl.getStudentBySchoolId);
 // router.put('/:StudentId', verifyToken, StudentCtrl.update);
 // router.delete('/:StudentId', verifyToken, StudentCtrl.delete);

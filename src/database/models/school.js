@@ -39,7 +39,15 @@ export default (sequelize, DataTypes) => {
     models.School.belongsTo(models.User, {foreignKey: { name: "userId" } });
   };
   School.associate = (models) => {
-    models.School.hasMany(models.Student, {foreignKey: { name: "schoolId" } });
+    models.School.belongsToMany(
+      models.Student, {
+        through: {
+          model: models.SchoolStudent
+        },
+        foreignKey: {
+          name: "SchoolId"
+        }
+    });
   };
   School.associate = (models) => {
     models.School.hasMany(models.Staff, {foreignKey: { name: "schoolId" } });
