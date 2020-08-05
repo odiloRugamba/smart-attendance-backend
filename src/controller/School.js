@@ -17,7 +17,7 @@ class School {
   static async getSchoolById(req, res) {
     const { id } = req.params;
 
-    const School = await SchoolService.getProfile(id);
+    const School = await SchoolService.getSchoolById(id);
     return Responses.Success(res, 200, 'successfully retrieved school requested', School);
   }
 

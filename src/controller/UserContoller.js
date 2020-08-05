@@ -206,7 +206,8 @@ class UserController {
 
       await models.User.update(
         {
-          password: hashPswd
+          password: hashPswd,
+          isVerified: true
         },
         {
           where: {
