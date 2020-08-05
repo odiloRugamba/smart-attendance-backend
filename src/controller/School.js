@@ -18,7 +18,7 @@ class School {
   static async getSchoolById(req, res) {
     const { id } = req.params;
 
-    const School = await SchoolService.getProfile(id);
+    const School = await SchoolService.getSchoolById(id);
     return Responses.Success(res, 200, 'successfully retrieved school requested', School);
   }
 
@@ -80,7 +80,7 @@ class School {
             const mail = new Mail({
                 to: head.email,
                 subject: 'Welcome to Smart Gate',
-                messageHeader: `Hi, ${head.userName}!`,
+                messageHeader: `Hi, ${head.firstName}!`,
                 messageBody: 'We are exicted to get you started. First, you have to verify your account. Just click on the link below',
                 iButton: true
             });
