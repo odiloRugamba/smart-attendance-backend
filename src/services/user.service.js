@@ -194,7 +194,6 @@ class UserServices {
       {
         attributes: [
           'firstName',
-          'userNasme',
           'phone',
           'lastName',
           'email',

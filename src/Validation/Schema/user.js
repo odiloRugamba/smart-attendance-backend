@@ -48,17 +48,6 @@ class Schema {
           'any.required': 'lastName is required',
           'string.empty': 'lastName is not allowed to be empty'
         }),
-      userName: Joi.string()
-        .min(3)
-        .max(30)
-        .required()
-        .messages({
-          'string.base': 'userName must be a string',
-          'string.min': 'userName length must be at least {{#limit}} characters long',
-          'string.max': 'userName length must be less than or equal to {{#limit}} characters long',
-          'any.required': 'userName is required',
-          'string.empty': 'userName is not allowed to be empty'
-        }),
       email: Joi.string()
         .email({ minDomainSegments: 2 })
         .required()

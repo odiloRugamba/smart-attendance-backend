@@ -8,9 +8,9 @@ export default {
     dialect: 'postgres'
   },
   test: {
-    use_env_variable: 'DATABASE_URL_TEST',
-    dialect: 'postgres',
-    logging: false
+    "dialect": "sqlite",
+    "storage": ":memory",
+    "logging": false
   },
   production: {
     use_env_variable: 'DATABASE_URL_PROD',

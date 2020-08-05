@@ -2,7 +2,7 @@ import express from 'express';
 import Controller from '../../controller/AdminController';
 import middlewares from '../../middleware/authenticate';
 import authorizeUser from '../../middleware/Authorization';
-import Validator from '../../Validation/Validation';
+import Validator from '../../Validation/validation/user';
 
 const {
   verifyToken

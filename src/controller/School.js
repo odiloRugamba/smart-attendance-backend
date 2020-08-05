@@ -3,7 +3,6 @@ import SchoolService from '../services/school';
 import UserService from '../services/user.service';
 import helpers from '../Utils';
 import Mail from "../Utils/mail/mail"
-import { upload } from '../Utils/ImageUploader';
 
 const {
   Responses,
