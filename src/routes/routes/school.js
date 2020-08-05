@@ -1,18 +1,24 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import SchoolCtrl from '../../controller/School';
-import middlewares from '../../middleware/authenticate';
+import {
+  create,
+  update
+} from '../../controller/School';
+import {
+    verifyToken,
+  } from '../../middleware/authenticate';
+import {
+  createSchoolValidation,
+  updateSchoolValidation
+} from '../../Validation/validation/school'
+
 
 dotenv.config();
 
 const router = express();
-const {
-  verifyToken,
-} = middlewares;
 
-
-router.post('/', verifyToken, SchoolCtrl.create);
-router.put('/:schoolId', verifyToken, SchoolCtrl.update);
+router.post('/', verifyToken, createSchoolValidation, create);
+router.put('/:schoolId', verifyToken,updateSchoolValidation, update);
  
 
 export default router;

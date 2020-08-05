@@ -2,9 +2,7 @@ import jwt from 'jsonwebtoken';
 import SchoolService from '../services/school';
 import UserService from '../services/user.service';
 import helpers from '../Utils';
-import jwt from "jsonwebtoken";
 import Mail from "../Utils/mail/mail"
-import { upload } from '../Utils/ImageUploader';
 
 const {
   Responses,
@@ -81,7 +79,7 @@ class School {
             const mail = new Mail({
                 to: head.email,
                 subject: 'Welcome to Smart Gate',
-                messageHeader: `Hi, ${head.userName}!`,
+                messageHeader: `Hi, ${head.firstName}!`,
                 messageBody: 'We are exicted to get you started. First, you have to verify your account. Just click on the link below',
                 iButton: true
             });

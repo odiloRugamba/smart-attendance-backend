@@ -28,7 +28,6 @@ class AdminController {
       }
       const newUser = {
         email: user[1][0].email,
-        userName: user[1][0].userName,
         new_role: user[1][0].role
       };
       return Responses.Success(res, 200, 'Role updated successfuly', newUser);
