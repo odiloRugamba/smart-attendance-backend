@@ -101,9 +101,9 @@ class School {
 
   static async delete(req, res, next) {
     try {
-      const { id } = req.params.schoolId;
-      const school = await SchoolService.update(id);
-      return Responses.Success(res, 200, 'School successfully delete', school);
+      const { schoolId } = req.params;
+      const school = await SchoolService.delete(schoolId);
+      return Responses.Success(res, 200, 'School successfully deleted', school);
     } catch (error) {
       return next(error);
     }
