@@ -77,13 +77,13 @@ export default {
     createdAt: {
       allowNull: true,
       type: Sequelize.DATE,
-      defaultValue: Sequelize.fn('NOW')
+      defaultValue: Sequelize.Now,
     },
     updatedAt: {
       allowNull: true,
       type: Sequelize.DATE,
-      defaultValue: Sequelize.fn('NOW')
-    },
+      defaultValue: Sequelize.Now,
+    }
   }),
 
   down: queryInterface => queryInterface.dropTable('Users')

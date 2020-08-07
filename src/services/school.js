@@ -57,7 +57,7 @@ class SchoolServices {
 
   static async delete(id) {
     try {
-      return await School.destroy(id);
+      return await School.destroy({ where: { id } });
     } catch (e) {
       throw new Error(e);
     }

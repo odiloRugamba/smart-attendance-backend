@@ -33,6 +33,15 @@ module.exports = (sequelize, DataTypes) => {
   };
   Class.associate = function(models) {
     models.Class.hasMany(models.ClassStudent, {foreignKey: { name: "classId" } });
+    models.Class.belongsToMany(
+      models.Student, {
+        through: {
+          model: models.ClassStudent
+        },
+        foreignKey: {
+          name: "classId"
+        }
+    });
   };
   return Class;
 };

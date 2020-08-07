@@ -1,6 +1,6 @@
-import Response from '../Utils/response';
+import Response from '../../Utils/response';
 
-import Schema from './Schema/schema';
+import Schema from '../Schema/user';
 
 const {
   signup, loginchema, assignRole

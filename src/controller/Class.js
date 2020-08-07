@@ -15,7 +15,7 @@ class Class {
   static async getStudents(req, res) {
     const { classId } = req.params;
 
-    const students = await ClassService.getStudents({ classId });
+    const students = await ClassService.getStudents({ id: classId });
     return Responses.Success(res, 200, 'successfully retrieved students requested', students);
   }
 

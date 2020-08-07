@@ -1,21 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import UserController from '../../controller/UserContoller';
-import middlewares from '../../middleware/authenticate';
-import Validator from '../../Validation/Validation';
-
-dotenv.config();
-
-const router = express();
-const {
-  verifyToken,
-} = middlewares;
-
-const {
-  userValidate,
-  loginValidate
-} = Validator;
-const {
+import {
   signUp,
   login,
   logout,
@@ -23,7 +8,18 @@ const {
   ResendLink,
   resetPassword,
   userVerification
-} = UserController;
+} from '../../controller/UserContoller';
+import {
+  verifyToken
+} from '../../middleware/authenticate';
+import {
+  userValidate,
+  loginValidate
+} from '../../Validation/validation/user';
+
+dotenv.config();
+
+const router = express();
 
 router.post('/signup', userValidate, signUp);
 router.post('/login', loginValidate, login);

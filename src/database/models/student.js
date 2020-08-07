@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {paranoid: true});
   Student.associate = function(models) {
-    models.Student.belongsTo(models.School, {foreignKey: { name: "schoolId" } });
     models.Student.belongsTo(models.Village, {foreignKey: { name: "villageId" } });
 
     models.Student.hasMany(models.StudentId, {foreignKey: { name: "studentId" } });
@@ -40,6 +39,15 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
     models.Student.hasMany(models.SchoolStudent, {foreignKey: { name: "studentId" } });
+    models.Student.belongsToMany(
+      models.Class, {
+        through: {
+          model: models.ClassStudent
+        },
+        foreignKey: {
+          name: "studentId"
+        }
+    });
     models.Student.hasMany(models.GateAttendance, {foreignKey: { name: "studentId" } });
     models.Student.hasMany(models.ClassAttendance, {foreignKey: { name: "studentId" } });
   };

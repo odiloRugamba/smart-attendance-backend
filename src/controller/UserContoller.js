@@ -103,7 +103,7 @@ class UserController {
         }
       }
       const newUser = {
-        id: user.id, userName: user.userName, email: user.email, role: user.role, school
+        id: user.id, email: user.email, role: user.role, school
       };
       const token = jwt.sign(newUser, process.env.SECRET_KEY);
       return Responses.Success(res, 200, `Hello ${user.email}! you are Logged in successfully`, {
@@ -157,7 +157,6 @@ class UserController {
 
       const payload = {
         id: user.id,
-        userName: user.userName,
         email: user.email,
       };
       const token = jwt.sign(payload, user.password);
@@ -166,7 +165,7 @@ class UserController {
       const mail = new Mail({
         to: email,
         subject: 'Password Reset',
-        messageHeader: `Hello, <strong>${user.userName}!</strong>`,
+        messageHeader: `Hello, <strong>${user.firstName}!</strong>`,
         messageBody: 'Click on the link below to reset your password',
         iButton: true
       });
@@ -176,7 +175,7 @@ class UserController {
       });
       mail.sendMail();
 
-      return Responses.Success(res, 200, `Hi ${user.userName.toUpperCase()}, A password reset link has been sent to your mail-box`, link);
+      return Responses.Success(res, 200, `Hi ${user.firstName.toUpperCase()}, A password reset link has been sent to your mail-box`, link);
     } catch (err) {
       return Responses.Error(res, 500, 'Internal Server Error');
     }
