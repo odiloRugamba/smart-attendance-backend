@@ -43,6 +43,7 @@ class Schema {
         }),
     combination: Joi.string()
         .allow(null)
+        .allow("")
         .min(1)
         .max(50)
         .required()

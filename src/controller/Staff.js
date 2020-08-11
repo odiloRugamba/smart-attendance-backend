@@ -60,7 +60,7 @@ class Staff {
         staff = await UserService.create(newUser);
 
         const payload = {
-          id: head.id,
+          id: staff.id,
           role: head.role,
           phoneNumber: head.phoneNumber,
           email: head.email

@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {paranoid: true});
   Student.associate = function(models) {
     models.Student.belongsTo(models.Village, {foreignKey: { name: "villageId" } });
-
+    models.Student.hasMany(models.Permission, {foreignKey: { name: "studentId" } });
     models.Student.hasMany(models.StudentId, {foreignKey: { name: "studentId" } });
     models.Student.belongsToMany(models.Guardian, {
       through: {

@@ -1,12 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
+
 import {
-  create,
-  update
-} from '../../controller/School';
-import {
-    verifyToken,
+    verifyToken
   } from '../../middleware/authenticate';
+
 import {
   createSchoolValidation,
   updateSchoolValidation

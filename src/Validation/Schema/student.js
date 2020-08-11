@@ -92,12 +92,12 @@ class Schema {
 
     disability: Joi.string()
       .allow(null)
+      .allow("")
       .messages({
-        'string.base': 'gender must be a string',
-        'string.min': 'gender length must be at least {{#limit}} characters long',
-        'string.max': 'gender length must be less than or equal to {{#limit}} characters long',
-        'any.required': 'gender is required',
-        'string.empty': 'gender is not allowed to be empty'
+        'string.base': 'disability must be a string',
+        'string.min': 'disability length must be at least {{#limit}} characters long',
+        'string.max': 'disability length must be less than or equal to {{#limit}} characters long',
+        'any.required': 'disability is required'
       }),
 
 

@@ -18,7 +18,6 @@ class ClassServices {
 
   static async getStudents(param) {
     try {
-      console.log("new");
       return await models.Student.findAll({
         include: {
           model: models.Class,
