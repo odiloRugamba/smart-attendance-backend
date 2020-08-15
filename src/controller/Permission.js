@@ -29,7 +29,6 @@ class Permission {
         studentId,
         schoolId
       } = req.body;
-
       const data = await PermissionService.create(req.body);
 
       return res.status(201).json({ status: 201, message: 'Permission created', data });
