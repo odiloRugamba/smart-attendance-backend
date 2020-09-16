@@ -1,0 +1,1125 @@
+{
+	"info": {
+		"_postman_id": "bdb0ce0c-3e6f-46c8-9541-fa4da94d348f",
+		"name": "Smart gate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "school",
+			"item": [
+				{
+					"name": "create school",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InBhcmVudCIsImVtYWlsIjoia2FyYW5nd2FlMTBAZ21haWwuY29tIiwiaWF0IjoxNTk0MDYzMTMxfQ.pmCwfX3bwggqmeCDzPSAQmsYQ6OF7Aeav3x4Q6qQpLE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InBhcmVudCIsImVtYWlsIjoia2FyYW5nd2FlMTBAZ21haWwuY29tIiwiaWF0IjoxNTk0MjA2NTY3fQ.1PjkjfSFc3Vlst8kgAkGBSXotYQgCum2rVfk1n4AXZQ",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"headFirstName\": \"John\",\n    \"headLastName\": \"Doe\",\n    \"headEmail\": \"odilorugamba@gmail.com\",\n    \"headPhone\": \"+250781111111\",\n    \"schoolName\": \"camp kanombe\",\n    \"schoolEmail\": \"camp@gmail.com\",\n    \"schoolPhone\": \"2222\",\n    \"villageId\": \"1\",\n    \"schoolAddress\": \"KK39 Kigali-Rwanda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/schools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update school",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InBhcmVudCIsImVtYWlsIjoia2FyYW5nd2FlMTBAZ21haWwuY29tIiwiaWF0IjoxNTk0MjA2NTY3fQ.1PjkjfSFc3Vlst8kgAkGBSXotYQgCum2rVfk1n4AXZQ",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schoolName\": \"camp kanombe\",\n    \"schoolEmail\": \"camp@gmail.com\",\n    \"schoolAddress\": \"KK39 Kigali-Rwanda\",\n    \"schoolPhone\": \"2222\",\n    \"villageId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/schools/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"schools",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "staff",
+			"item": [
+				{
+					"name": "Create school staff",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schoolId\": \"1\",\n    \"firstName\": \"S-firstName\",\n    \"lastName\": \"S-lastName\",\n    \"email\": \"staff@gmail.com\",\n    \"phone\": \"0781111111\",\n    \"role\": \"DOS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/staffs",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"staffs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all school staff",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+								"type": "text"
+							},
+							{
+								"key": "schoolId",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/staffs/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"staffs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete staff",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/staffs/8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"staffs",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update staff role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "role",
+									"value": "TEACHER",
+									"type": "text"
+								}
+							],
+							"options": {
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/staffs/8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"staffs",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Class teacher",
+			"item": [
+				{
+					"name": "create class teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"classId\": 2,\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/teachers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All school teachers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							},
+							{
+								"key": "schoolId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/teachers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"teachers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all class teachers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							},
+							{
+								"key": "schoolId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/teachers/1/class-teachers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"teachers",
+								"1",
+								"class-teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get teacher classes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							},
+							{
+								"key": "schoolId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/teachers/1/classes",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"teachers",
+								"1",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete staff",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/teachers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"teachers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "Create class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"schoolId\": \"2\",\n    \"level\": \"P\",\n    \"year\": \"12\",\n    \"label\": null,\n    \"combination\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/classes",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all class by school",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							},
+							{
+								"key": "schoolId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/classes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all class students",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							},
+							{
+								"key": "schoolId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/classes/1/students",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classes",
+								"1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete class",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/classes/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"classes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update class",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"level\": \"1\",\n    \"label\": \"B\",\n    \"year\": \"4\",\n    \"combination\": \"MP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/classes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "create student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"s-firstName-2\",\n    \"lastName\": \"s-lastname-2\",\n    \"gender\": \"M\",\n    \"dob\": \"2000/02/02\",\n    \"disability\": \"no\",\n    \"villageId\": 1,\n    \"schoolId\": 1,\n    \"classId\": 1,\n    \"enrollmentYear\": 2020,\n    \"guardianFirstName\": \"g-firstname\",\n    \"guardianLastName\": \"g-lastname\",\n    \"guardianPhone\": null,\n    \"guardianEmail\": null,\n    \"guardianRelationship\": \"mother\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/students",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"s-firstName-2\",\n    \"lastName\": \"s-lastname-2\",\n    \"gender\": \"M\",\n    \"dob\": \"2000/02/02\",\n    \"disability\": null,\n    \"villageId\": 1,\n    \"classId\": 1,\n    \"enrollmentYear\": 2020,\n    \"guardianFirstName\": \"g-firstname\",\n    \"guardianLastName\": \"g-lastname\",\n    \"guardianPhone\": \"0782222222\",\n    \"guardianEmail\": \"gemail@gmail.com\",\n    \"guardianRelationship\": \"mother\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/students/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all class students",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow"
+							},
+							{
+								"key": "schoolId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/classes/1/students",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"classes",
+								"1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "permission",
+			"item": [
+				{
+					"name": "create permission",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJvZGlsb3J1Z2FtYmFAZ21haWwuY29tIiwicm9sZSI6IkhFQUQiLCJzY2hvb2wiOnsiaWQiOjIsIm5hbWUiOiJjYW1wIGthbm9tYmUifSwiaWF0IjoxNTk3MTQ4NTg3fQ.rGTwxZ2gfbSkRp70gTiG3oe4_PxpumOjOxrclJtJikc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJvZGlsb3J1Z2FtYmFAZ21haWwuY29tIiwicm9sZSI6IkhFQUQiLCJzY2hvb2wiOnsiaWQiOjIsIm5hbWUiOiJjYW1wIGthbm9tYmUifSwiaWF0IjoxNTk3MTQ4NTg3fQ.rGTwxZ2gfbSkRp70gTiG3oe4_PxpumOjOxrclJtJikc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"leavingTime\": \"2020-07-04T20:20:00.000Z\",\n    \"expectedBackTime\":\"2020-08-04T20:20:00.000Z\",\n    \"reason\":\"no reason\",\n    \"requesterName\":\"Odilo\",\n    \"requesterPhone\":\"0789274789\",\n    \"requesterRelationship\":\"brother\",\n    \"studentId\":\"1\",\n    \"schoolId\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/permissions",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJvZGlsb3J1Z2FtYmFAZ21haWwuY29tIiwicm9sZSI6IkhFQUQiLCJzY2hvb2wiOnsiaWQiOjIsIm5hbWUiOiJjYW1wIGthbm9tYmUifSwiaWF0IjoxNTk3MTQ4NTg3fQ.rGTwxZ2gfbSkRp70gTiG3oe4_PxpumOjOxrclJtJikc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/permissions/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"permissions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "add user ( staff, parent, local governmant person)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"firstName\": \"Emmy\",\n\"lastName\": \"Karangwa\",\n\"phoneNumber\":\"0786638560\",\n\"email\": \"karangwae1s@gmail.com\",\n\"password\": \"Justpass123\",\n\"role\": \"parent\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"odilorugamba@gmail.com\",\n\"password\": \"Justpass\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJrYXJhbmd3YWUxMEBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNTk0MjAzNzgyfQ.MGEpmu_Bu49jnfzxKoVsUte1FaxO5M1iqE3oMTBcBow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlck5hbWUiOiJPZGlsbyIsImVtYWlsIjoib2RpbG9ydWdhbWJhQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlci1hZG1pbmlzdHJhdG9yIiwiaWF0IjoxNTkzMDk2NDY5fQ.8G0cgEMaRGI-oSgWmMAmyC6Y8Q_RpWccX64PZE3oRjc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"brianrubimbura@gmail.com\",\n\"roleName\": \"head-master\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/account/admin/assignRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"account",
+								"admin",
+								"assignRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"odilorugamba@gmail.com\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/forget",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"forget"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "baseUrl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset User Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\":\"Skemc12345\",\n\t\"confirmPassword\":\"Skemc12345\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/auth/profile/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"profile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsInJvbGUiOiJwYXJlbnQiLCJ1c2VyTmFtZSI6IkthcmFnd2ExMCIsImVtYWlsIjoia2FyYW5nd2FlMTBAZ21haWwuY29tIiwiaWF0IjoxNTkzMjc0NjY2fQ.oZCtFlSNvNXZNVWNP2QNth9rcTYdDLJBY4XamIgLFRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"karangwae00@gmail.com\"\n\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
